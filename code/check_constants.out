@@ -1,0 +1,8 @@
+Lemma 2.1 identity, max relative error on 20000 random quadruples: 4.088602945997697e-14
+Prop 2.2: remainder floor 9/22 > 3/8
+Prop 2.3: E W^3 = 999/20000 = 0.04995  bound = 0.033543081374990624  bound < 0.0336: True
+Lemma 3.2: equation error 9.411500702180603e-11  closed-form error 7.834881350491686e-08  max |f|/(y a) = 1.666621333504 (<= 25/3)
+Prop 3.1, c=1.0: min (p-nu)/p = 0.9688, residual oddness 3.8e-08, r = 0.4926, atom left = 0.2537
+Prop 3.1, c=-1.0: min (p-nu)/p = 0.9688, residual oddness 3.9e-08, r = 0.4926, atom left = 0.2537
+Prop 3.1, c=0.3: min (p-nu)/p = 0.9906, residual oddness 1.9e-08, r = 0.4978, atom left = 0.2511
+all checks passed
