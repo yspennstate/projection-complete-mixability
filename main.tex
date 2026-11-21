@@ -54,30 +54,48 @@ distributions carried by compact sets of small box dimension.
 Let $n\ge 2$. A distribution $F$ on $\R^d$ is \emph{$n$-completely mixable} ($n$-CM) if there are random vectors
 $X_1,\dots,X_n$, each with law $F$, such that $X_1+\dots+X_n$ is almost surely constant; the vector
 $(X_1,\dots,X_n)$ is then an \emph{$n$-mix} of $F$, and when $F$ has a finite mean $b$ the constant is $nb$. The
-notion arises in bounds on the risk of a sum of dependent losses. Wang and Wang \cite{WW11} characterized the
+notion arises in bounds on the risk of a sum of dependent losses \cite{PWW13}. Wang and Wang \cite{WW11} characterized the
 completely mixable distributions with monotone densities, Puccetti, Wang and Wang \cite{PWW12,PWW13} proved
 that concave densities, and densities bounded below on an interval, are $n$-CM for $n\ge3$, and Wang and Wang
 \cite{WW16} extended the theory to tuples of different distributions. Wang's survey \cite{Wang} collects the open
 problems. Almost all of the theory concerns distributions on the line. R\"uschendorf and Uckelmann \cite{RU}
 showed that symmetric unimodal densities are $n$-CM and made an early study of the multidimensional case, and Yin
-and Zhu \cite[Theorem~4.1]{YZ} showed that a class of elliptical distributions on $\R^p$ is $n$-CM.
+and Zhu \cite[Theorem~4.1]{YZ} showed that a class of elliptical distributions on $\R^d$ is $n$-CM. Komisarski and Labuschagne \cite{KL} used the
+non-uniqueness of the constant sum without a mean to construct, for each bounded Borel set $B\subseteq\R^d$, one
+distribution $\mu$ on $\R^d$ such that for every $n\ge3$ every distribution on $B$ is the law of
+$(X_1+\dots+X_n)/n$ for some random vectors $X_i$ with law $\mu$.
 
 If $(X_1,\dots,X_n)$ is an $n$-mix of $F$ and $L\colon\R^d\to\R^k$ is linear, then $(LX_1,\dots,LX_n)$ is an
-$n$-mix of the image law $F\circ L^{-1}$. This is \cite[Proposition~6]{Wang}. Wang asked for a converse
+$n$-mix of the image law $F\circ L^{-1}$. For orthogonal projections onto subspaces this is \cite[Proposition~6]{Wang}. Wang asked for a converse
 \cite[Open Problem~6]{Wang}: if $d>1$ and the projection of $F$ to every essential subspace of $\R^d$ is $n$-CM,
 is $F$ $n$-CM, and if not, under which extra conditions? In the same section Wang observes that every projection of a uniform distribution on a convex
 set in the plane has a concave density, so is $n$-CM for $n\ge3$ by \cite{PWW12}, and adds: ``Of course, this is not
-sufficient for such a distribution to be $n$-CM on $\R^d$.'' Our first result gives distributions for which the
-projections are $n$-CM and the distribution is not.
+sufficient for such a distribution to be $n$-CM on $\R^d$.'' No example is given there. The projections of $F$ determine $F$, by the
+Cram\'er--Wold theorem, but they do not determine its mixes: an $n$-mix of the image of $F$ under a linear
+functional is a coupling chosen for that functional alone, and the couplings chosen for different functionals
+need not be the images of one coupling of $F$. For $n=2$ there is nothing to choose when $F$ has a finite mean
+$b$, since every $2$-mix then has the form $(X,2b-X)$, and the converse holds (\cref{prop:two}). For $n\ge3$ it
+fails.
 
 \begin{theorem}\label{thm:main}
 For every $n\ge3$ there is a compactly supported distribution $P$ on $\R^2$ with mean zero such that the image of
 $P$ under every linear map $\R^2\to\R$ is $n$-CM, while $P$ is not $n$-CM.
 \end{theorem}
 
+The obstruction is algebraic. If $w_1,\dots,w_4\in\C$, then
+\[
+w_1+w_2+w_3+w_4=0\quad\Longrightarrow\quad\sum_{i=1}^4 w_i^3=3\sum_{i=1}^4\bigl(1-|w_i|^2\bigr)\prod_{j\ne i}w_j
+\]
+(\cref{lem:cubic}), so four points of the unit circle with sum zero have $\sum_iw_i^3=0$. Hence the law of
+$e^{i\Theta}$, where $\Theta$ has density $(1+\frac1{10}\cos3\theta)/(2\pi)$, has mean zero and is not $4$-CM: a $4$-mix would give
+$4\E e^{3i\Theta}=0$, while $\E e^{3i\Theta}=1/20$. The images of this law under linear functionals have densities
+bounded below by $9/10$ times the arcsine density, and after an even part is split off the criterion of Puccetti,
+Wang and Wang \cite[Theorem~3.4]{PWW13} makes them $4$-CM (\cref{sec:four}). For $n=3$ the corresponding fact is
+that three points of $\{0\}\cup\{|z|=1\}$ with sum zero have $\sum_jw_j^5=0$ (\cref{sec:three}).
+
 The survey does not define essential subspaces; since the proper nonzero subspaces of $\R^2$ are lines,
-\cref{thm:main} answers the question in the negative for any choice of them. The failure is not caused by atoms or
-by lower-dimensional supports.
+\cref{thm:main} answers the question in the negative for any choice of them. The distribution can also be taken
+with a smooth or a real-analytic density.
 
 \begin{theorem}\label{thm:regular}
 For every $n\ge 3$ there is a distribution $P$ on $\R^2$ with mean zero such that the image of $P$ under every linear
@@ -90,10 +108,11 @@ For $n=4$, a distribution as in (a) is given explicitly in \cref{prop:disk4}.
 \end{theorem}
 
 The examples are not uniform distributions on convex sets, so they say nothing about Wang's Open Problem~5, which
-asks whether such uniform distributions on $\R^d$ are $(d+1)$-CM. They are not centrally symmetric (their third or
-fifth complex moments do not vanish), so they are not of the elliptically contoured or $\alpha$-symmetric kind treated in \cite{RU}.
+asks whether such uniform distributions on $\R^d$ are $(d+1)$-CM. The examples constructed below for $n=3$ and
+$n=4$ are not centrally symmetric (their fifth and third complex moments do not vanish), so they are not of the elliptically
+contoured or $\alpha$-symmetric kind treated in \cite{RU}.
 
-Index two behaves differently, and here the mean matters.
+For $n=2$ the answer depends on whether the mean is finite.
 
 \begin{proposition}\label{prop:two}
 Let $X$ be a random vector in $\R^d$ with a finite mean. Then the law of $X$ is $2$-CM if and only if the law of
@@ -105,24 +124,23 @@ There is a distribution on $\R^2$ whose image under every linear map $\R^2\to\R$
 \end{example}
 
 The distribution in \cref{ex:stable} is a linear image of three independent totally skewed $1$-stable variables. It
-uses the fact, studied by Puccetti, Rigo, Wang and Wang \cite{PRWW}, that without a mean the constant sum of a
-mix (the \emph{center}) is no longer determined by the distribution; here the centers of the projections are
+uses the fact, studied by Puccetti, Rigo, Wang and Wang \cite{PRWW}, that without a mean the constant sum of an $n$-mix is no longer determined by the distribution; here the sums for the projections are
 determined but are not linear in the direction.
 
-Finally we give a positive result in the direction of Open Problem~6. It says that if the support is thin enough,
-one projection suffices.
+Finally we give a positive result in the direction of Open Problem~6: a single linear map decides complete
+mixability when its kernel meets the centered $n$-fold sums of the support only at $0$.
 
 \begin{proposition}\label{prop:thin}
 Let $X$ be a random vector in $\R^d$ with finite mean $b$, carried by a Borel set $S$, and let
 \[
-T=\{s_1+\dots+s_n-nb:\ s_1,\dots,s_n\in S\}.
+\Delta=\{s_1+\dots+s_n-nb:\ s_1,\dots,s_n\in S\}.
 \]
-If $L\colon\R^d\to\R^k$ is linear and $\ker L\cap T\subseteq\{0\}$, then the law of $X$ is $n$-CM if and only if the
+If $L\colon\R^d\to\R^k$ is linear and $\ker L\cap \Delta\subseteq\{0\}$, then the law of $X$ is $n$-CM if and only if the
 law of $LX$ is $n$-CM.
 \end{proposition}
 
 \begin{corollary}\label{cor:dim}
-In \cref{prop:thin} let $1\le k<d$, and suppose the set of directions $E=\{t/|t|:\ 0\ne t\in T\}$ has Hausdorff
+In \cref{prop:thin} let $1\le k<d$, and suppose the set of directions $E=\{t/|t|:\ 0\ne t\in \Delta\}$ has Hausdorff
 dimension less than $k$. Then for almost every $k$-dimensional subspace $V$ (with respect to the invariant
 probability measure), the law of $X$ is $n$-CM if and only if its orthogonal projection onto $V$ is $n$-CM. The
 hypothesis holds when $S$ is compact with upper box dimension less than $k/n$.
@@ -133,17 +151,21 @@ $S=\{(x,x^2):x\in K_q\}\subseteq\R^2$. If $q>2^n$ and $F$ is a distribution carr
 (the exceptional set may depend on $F$), $F$ is $n$-CM if and only if its image under $x\mapsto\langle u,x\rangle$ is
 $n$-CM.
 
-\Cref{sec:four} gives the case $n=4$ of \cref{thm:main}, where the obstruction is a single moment identity, and
-the explicit smooth example. \Cref{sec:three} treats $n=3$, where the scalar mixes have to be built by hand, and
-\cref{sec:all} passes to all $n\ge 3$ and proves \cref{thm:regular}. \Cref{sec:two} treats index two and
-\cref{sec:thin} the thin supports.
+\Cref{sec:four} gives the case $n=4$ of \cref{thm:main} and
+the explicit smooth example. \Cref{sec:three} treats $n=3$, where the $3$-mixes of the projections are built from
+triples $(x,-Ux,-(1-U)x)$ with $U$ uniform, and
+\cref{sec:all} passes to all $n\ge 3$ and proves \cref{thm:regular}. \Cref{sec:two} treats $n=2$ and
+\cref{sec:thin} supports of small dimension.
 
+By the projections of a distribution on $\R^d$ we mean its images under linear maps $\R^d\to\R$.
 Throughout we identify $\R^2$ with $\C$, and $*$ denotes convolution. For $\phi\in\R$ write $\pi_\phi(z)=\re(e^{-i\phi}z)$, so that every
 nonzero linear functional on $\R^2$ is a positive multiple of some $\pi_\phi$; since $n$-complete mixability is
 preserved by scaling, it suffices to consider the maps $\pi_\phi$. We write $a(x)=1/(\pi\sqrt{1-x^2})$ for the
 arcsine density on $(-1,1)$ and $T_m$ for the Chebyshev polynomial with $T_m(\cos v)=\cos(mv)$.
 
-We use the following two standard facts.
+We use the following two standard facts. The mixture argument in (i) is the one in the proof of
+\cite[Theorem~2]{Wang}, and (ii) is a special case of the complete mixability of radially symmetric distributions
+\cite{PWW12}.
 
 \begin{lemma}\label{lem:basic}
 \begin{enumerate}[label=(\roman*)]
@@ -161,21 +183,21 @@ the law of $\pi_\phi(W)$ is $n$-CM for every $\phi$.
 coordinate by coordinate. (ii) Each $\omega^jW$ has the law of $W$, and $\sum_j\omega^j=0$.
 \end{proof}
 
-The projection of a circle law is computed as follows. If $\Theta$ has density $p(\theta)$ on $[0,2\pi)$, then
+We call the law of $e^{i\Theta}$, for a random angle $\Theta$ with a density, a \emph{law on the circle}. Its projections are computed as follows. If $\Theta$ has density $p_\Theta(\theta)$, extended to $\R$ with period $2\pi$, then
 $\pi_\phi(e^{i\Theta})=\cos(\Theta-\phi)$ has density on $(-1,1)$
 \begin{equation}\label{eq:proj}
-\frac{p(\phi+\arccos x)+p(\phi-\arccos x)}{\sqrt{1-x^2}},
+\frac{p_\Theta(\phi+\arccos x)+p_\Theta(\phi-\arccos x)}{\sqrt{1-x^2}},
 \end{equation}
-the sum over the two preimages. For $p(\theta)=(1+\epsilon\cos(m\theta))/(2\pi)$ this equals
+the sum over the two preimages. For $p_\Theta(\theta)=(1+\epsilon\cos(m\theta))/(2\pi)$ this equals
 \begin{equation}\label{eq:projm}
 a(x)\bigl(1+\epsilon\cos(m\phi)\,T_m(x)\bigr),
 \end{equation}
 because $\cos(m(\phi+v))+\cos(m(\phi-v))=2\cos(m\phi)\cos(mv)$.
 
-\section{Four copies}\label{sec:four}
+\section{The case \texorpdfstring{$n=4$}{n=4}}\label{sec:four}
 
-Let $\epsilon=1/10$ and let $P_4$ be the law of $Z=e^{i\Theta}$, where $\Theta$ has density
-$(1+\epsilon\cos 3\theta)/(2\pi)$. Then $\E Z=0$ and $\E Z^3=\epsilon/2=1/20$.
+Let $\epsilon_4=1/10$ and let $P_4$ be the law of $Z=e^{i\Theta}$, where $\Theta$ has density
+$(1+\epsilon_4\cos 3\theta)/(2\pi)$. Then $\E Z=0$ and $\E Z^3=\epsilon_4/2=1/20$.
 
 \begin{lemma}\label{lem:cubic}
 If $w_1,\dots,w_4\in\C$ and $w_1+w_2+w_3+w_4=0$, then
@@ -202,82 +224,82 @@ For every $\phi$ the law of $\pi_\phi(Z)$ is $4$-CM.
 \end{proposition}
 
 \begin{proof}
-By \eqref{eq:projm} the law of $Y=\pi_\phi(Z)$ has density $f(x)=a(x)(1+\epsilon cT_3(x))$ with $c=\cos3\phi$.
-Since $|T_3|\le1$ on $[-1,1]$, we have $f\ge(9/10)a$. Let $h=(9/10)(a-1/4)$. It is even and nonnegative, since
+By \eqref{eq:projm} the law of $Y=\pi_\phi(Z)$ has density $\psi(x)=a(x)(1+\epsilon_4 c_4T_3(x))$ with $c_4=\cos3\phi$.
+Since $|T_3|\le1$ on $[-1,1]$, we have $\psi\ge(9/10)a$. Let $\chi=(9/10)(a-1/4)$. It is even and nonnegative, since
 $a\ge1/\pi>1/4$, and its mass is $(9/10)(1-1/2)=9/20$. A distribution with an even density is $4$-CM with sum zero:
-take $(V,-V,V',-V')$ with $V,V'$ independent. The remainder $f-h$ has mass $11/20$ and mean zero, because $f$ and
-$h$ both have mean zero, and
+take $(Y',-Y',Y'',-Y'')$ with $Y',Y''$ independent. The remainder $\psi-\chi$ has mass $11/20$ and mean zero, because $\psi$ and
+$\chi$ both have mean zero, and
 \[
-\frac{f-h}{11/20}\ \ge\ \frac{(9/10)(1/4)}{11/20}=\frac{9}{22}>\frac38=\frac{3}{4\cdot 2}.
+\frac{\psi-\chi}{11/20}\ \ge\ \frac{(9/10)(1/4)}{11/20}=\frac{9}{22}>\frac38=\frac{3}{4\cdot 2}.
 \]
-By the theorem of Puccetti, Wang and Wang \cite[Theorem~3.4]{PWW13}, a distribution on an interval $[\alpha,\beta]$
-with a density bounded below by $3/(n(\beta-\alpha))$ is $n$-CM for $n\ge3$. Applied with $n=4$ on $[-1,1]$, the
-normalized remainder is $4$-CM with sum $0$ (the values of a density at the two endpoints can be chosen freely). Writing $f=h+(f-h)$ and using \cref{lem:basic}(i) shows that the law
+By the theorem of Puccetti, Wang and Wang \cite[Theorem~3.4]{PWW13}, a distribution on an interval $[x_0,x_1]$
+with a density bounded below by $3/(n(x_1-x_0))$ is $n$-CM for $n\ge3$. Applied with $n=4$ on $[-1,1]$, the
+normalized remainder is $4$-CM with sum $0$ (the values of a density at the two endpoints can be chosen freely). Writing $\psi=\chi+(\psi-\chi)$ and using \cref{lem:basic}(i) shows that the law
 of $Y$ is $4$-CM.
 \end{proof}
 
-Without removing $h$ the theorem of \cite{PWW13} does not apply to $f$ directly, since $f(0)$ is close to $1/\pi<3/8$.
+Without removing $\chi$ the theorem of \cite{PWW13} does not apply to $\psi$ directly, since $\psi(0)=1/\pi<3/8$.
 
 To make the example smooth, for $r>0$ let $D_r$ be the rotation-invariant probability density on $\C$ proportional to
-$\exp\bigl(-1/(1-|x|^2/r^2)\bigr)$ for $|x|<r$ and to $0$ otherwise. Let $\delta=1/200$, $R=1+\delta$ and
-$\eta=1/1000$.
+$\exp\bigl(-1/(1-|x|^2/r^2)\bigr)$ for $|x|<r$ and to $0$ otherwise. Let $\xi=1/200$, $R_4=1+\xi$ and
+$\eta_4=1/1000$.
 
 \begin{proposition}\label{prop:disk4}
-Let $W$ be distributed as $Z+B$ with probability $1-\eta$, where $Z\sim P_4$ and $B$ has density $D_\delta$
-independent of $Z$, and with density $D_R$ with probability $\eta$. The law of $W$ has a $C^\infty$ density, positive
-on $\{|x|<R\}$ and zero outside, every image of it under a linear map $\R^2\to\R$ is $4$-CM, and it is not $4$-CM.
+Let $\widetilde Z$ be distributed as $Z+B$ with probability $1-\eta_4$, where $Z\sim P_4$ and $B$ has density $D_\xi$
+independent of $Z$, and with density $D_{R_4}$ with probability $\eta_4$. The law of $\widetilde Z$ has a $C^\infty$ density, positive
+on $\{|x|<R_4\}$ and zero outside, every image of it under a linear map $\R^2\to\R$ is $4$-CM, and it is not $4$-CM.
 \end{proposition}
 
 \begin{proof}
-The density is $(1-\eta)\,P_4*D_\delta+\eta D_R$, which is smooth, supported in $\{|x|\le R\}$, and positive on the
-open disk because $D_R$ is. Its projections are $4$-CM by \cref{prop:proj4} and \cref{lem:basic}: the projection of
+The density is $(1-\eta_4)\,P_4*D_\xi+\eta_4 D_{R_4}$, which is smooth, supported in $\{|x|\le R_4\}$, and positive on the
+open disk because $D_{R_4}$ is. Its projections are $4$-CM by \cref{prop:proj4} and \cref{lem:basic}: the projection of
 $Z+B$ is an independent sum of $\pi_\phi(Z)$ and $\pi_\phi(B)$, both $4$-CM with sum $0$, and the projection of the
-$D_R$ branch is $4$-CM with sum $0$.
+$D_{R_4}$ component is $4$-CM with sum $0$.
 
-Suppose $(W_1,\dots,W_4)$ is a $4$-mix. Its sum is $4\E W=0$. By \cref{lem:cubic} and $|W_i|\le R$,
+Suppose $(\widetilde Z_1,\dots,\widetilde Z_4)$ is a $4$-mix. Its sum is $4\E \widetilde Z=0$. By \cref{lem:cubic} and $|\widetilde Z_i|\le R_4$,
 \[
-\Bigl|\sum_iW_i^3\Bigr|\le 3R^3\sum_i\bigl|1-|W_i|^2\bigr|,
-\qquad\text{so}\qquad |\E W^3|\le 3R^3\,\E\bigl|1-|W|^2\bigr| .
+\Bigl|\sum_i\widetilde Z_i^3\Bigr|\le 3R_4^3\sum_i\bigl|1-|\widetilde Z_i|^2\bigr|,
+\qquad\text{so}\qquad |\E \widetilde Z^3|\le 3R_4^3\,\E\bigl|1-|\widetilde Z|^2\bigr| .
 \]
-Since $B$ and the $D_R$ branch are rotation invariant, $\E B=\E B^2=\E B^3=0$ and the $D_R$ branch has third moment
-$0$; hence $\E W^3=(1-\eta)\E Z^3=(1-\eta)/20=0.04995$. On the first branch
-$\bigl||Z+B|^2-1\bigr|\le2\delta+\delta^2=401/40000$, and on the second $\bigl|1-|W|^2\bigr|\le\max(1,R^2-1)=1$.
+Since $B$ and the $D_{R_4}$ component are rotation invariant, $\E B=\E B^2=\E B^3=0$ and the $D_{R_4}$ component has third moment
+$0$; hence $\E \widetilde Z^3=(1-\eta_4)\E Z^3=(1-\eta_4)/20=0.04995$. On the first component
+$\bigl||Z+B|^2-1\bigr|\le2\xi+\xi^2=401/40000$, and on the second $\bigl|1-|\widetilde Z|^2\bigr|\le\max(1,R_4^2-1)=1$.
 Therefore
 \[
-3R^3\,\E\bigl|1-|W|^2\bigr|\le3\Bigl(\frac{201}{200}\Bigr)^3\Bigl(\frac{999}{1000}\cdot\frac{401}{40000}+\frac1{1000}\Bigr)
+3R_4^3\,\E\bigl|1-|\widetilde Z|^2\bigr|\le3\Bigl(\frac{201}{200}\Bigr)^3\Bigl(\frac{999}{1000}\cdot\frac{401}{40000}+\frac1{1000}\Bigr)
 <0.0336<0.04995,
 \]
 a contradiction.
 \end{proof}
 
-\section{Three copies}\label{sec:three}
+\section{The case \texorpdfstring{$n=3$}{n=3}}\label{sec:three}
 
-For $n=3$ we use a circle law together with an atom at the origin. Let
-$\beta=1/2$, $\epsilon=1/100$, and let $P_3$ be the law of a random vector $W$ that equals $0$ with probability
+For $n=3$ we use a law on the circle together with an atom at the origin. Let
+$\beta=1/2$, $\epsilon_3=1/100$, and let $P_3$ be the law of a random vector $W_3$ that equals $0$ with probability
 $1-\beta$ and equals $e^{i\Theta}$ with probability $\beta$, where $\Theta$ has density
-$(1+\epsilon\cos5\theta)/(2\pi)$. Then $\E W=0$ and $\E W^5=\beta\epsilon/2\ne0$.
+$(1+\epsilon_3\cos5\theta)/(2\pi)$. Then $\E W_3=0$ and $\E W_3^5=\beta\epsilon_3/2\ne0$.
 
 \begin{proof}[Proof that $P_3$ is not $3$-CM]
 A $3$-mix has sum $0$. Let $(w_1,w_2,w_3)$ be a point of $(\{0\}\cup\{|z|=1\})^3$ with $w_1+w_2+w_3=0$. If no entry
-is $0$, then $|w_1+w_2|=1$ forces the angle between $w_1$ and $w_2$ to be $2\pi/3$, so the entries are $w,\omega
-w,\omega^2w$ with $\omega=e^{2\pi i/3}$, and $\sum_jw_j^5=w^5(1+\omega^2+\omega)=0$. If exactly one entry is $0$ the
+is $0$, then $|w_1+w_2|=1$ forces the angle between $w_1$ and $w_2$ to be $2\pi/3$, so the entries are $w,\omega_3
+w,\omega_3^2w$ with $\omega_3=e^{2\pi i/3}$, and $\sum_jw_j^5=w^5(1+\omega_3^2+\omega_3)=0$. If exactly one entry is $0$ the
 other two are $w,-w$, and if two are $0$ all three are. In every case $\sum_jw_j^5=0$, so a $3$-mix would give
-$3\E W^5=0$.
+$3\E W_3^5=0$.
 \end{proof}
 
 \begin{proposition}\label{prop:proj3}
-For every $\phi$ the law of $\pi_\phi(W)$ is $3$-CM.
+For every $\phi$ the law of $\pi_\phi(W_3)$ is $3$-CM.
 \end{proposition}
 
-By \eqref{eq:projm} the law $\mu$ of $\pi_\phi(W)$ is $(1-\beta)\delta_0$ plus the measure with density
+By \eqref{eq:projm} the law $\mu$ of $\pi_\phi(W_3)$ is $(1-\beta)\delta_0$ plus the measure with density
 \[
-p(y)=\beta a(y)\bigl(1+\epsilon cT_5(y)\bigr)\quad\text{on }(-1,1),\qquad c=\cos5\phi .
+p(y)=\beta a(y)\bigl(1+\epsilon_3 c_3T_5(y)\bigr)\quad\text{on }(-1,1),\qquad c_3=\cos5\phi .
 \]
-Since $T_5$ is odd, $p(y)-p(-y)=2\beta\epsilon c\,h(y)$ for $0<y<1$, where $h=aT_5$. The idea is to produce this odd
+Since $T_5$ is odd, $p(y)-p(-y)=2\beta\epsilon_3 c_3\,h(y)$ for $0<y<1$, where $h=aT_5$. The idea is to produce this odd
 part with triples of the form $(x,-Ux,-(1-U)x)$ and to absorb the even remainder with antipodal pairs and the atom.
 
 \begin{lemma}\label{lem:ode}
-Let $F(y)=y^{-2}\int_y^1xh(x)\,dx$ and $f=h+2F$ on $(0,1)$. Then
+Let $\Phi(y)=y^{-2}\int_y^1xh(x)\,dx$ and $f=h+2\Phi$ on $(0,1)$. Then
 \[
 f(y)-2\int_y^1\frac{f(x)}{x}\,dx=h(y)\quad(0<y<1),
 \]
@@ -287,17 +309,17 @@ f(y)=\frac{a(y)\,(32y^5-34y^3+5y)}{3},\qquad |f(y)|\le\frac{25}{3}\,y\,a(y).
 \end{lemma}
 
 \begin{proof}
-Differentiating, $F'(y)=-2F(y)/y-h(y)/y=-f(y)/y$, and $F(y)\to0$ as $y\to1$ since $xh$ is integrable. Hence
-$F(y)=\int_y^1f(x)\,dx/x$, which is the first identity. For the closed form substitute $x=\cos v$: then
-$xh(x)\,dx=-\pi^{-1}\cos v\cos5v\,dv$, and integrating gives $F(y)=(8y^3-5y)\sqrt{1-y^2}/(3\pi)$, from which the
+Differentiating, $\Phi'(y)=-2\Phi(y)/y-h(y)/y=-f(y)/y$, and $\Phi(y)\to0$ as $y\to1$ since $xh$ is integrable. Hence
+$\Phi(y)=\int_y^1f(x)\,dx/x$, which is the first identity. For the closed form substitute $x=\cos v$: then
+$xh(x)\,dx=-\pi^{-1}\cos v\cos5v\,dv$, and integrating gives $\Phi(y)=(8y^3-5y)\sqrt{1-y^2}/(3\pi)$, from which the
 formula for $f$ follows. For the bound, note that $\int_0^1xh(x)\,dx=\pi^{-1}\int_0^{\pi/2}\cos v\cos5v\,dv=0$, so
-also $F(y)=-y^{-2}\int_0^yxh(x)\,dx$. Since $|T_5(x)|=x|16x^4-20x^2+5|\le5x$ on $[0,1]$ (the quadratic $16t^2-20t+5$
+also $\Phi(y)=-y^{-2}\int_0^yxh(x)\,dx$. Since $|T_5(x)|=x|16x^4-20x^2+5|\le5x$ on $[0,1]$ (the quadratic $16t^2-20t+5$
 in $t=x^2$ takes the values $5$, $-5/4$ and $1$ at $t=0,5/8,1$) and $a$ is increasing on $[0,1)$, we get
-$|h(y)|\le5ya(y)$ and $|F(y)|\le y^{-2}\int_0^y5x^2a(x)\,dx\le(5/3)ya(y)$. Hence $|f|\le|h|+2|F|\le(25/3)ya$.
+$|h(y)|\le5ya(y)$ and $|\Phi(y)|\le y^{-2}\int_0^y5x^2a(x)\,dx\le(5/3)ya(y)$. Hence $|f|\le|h|+2|\Phi|\le(25/3)ya$.
 \end{proof}
 
 \begin{proof}[Proof of \cref{prop:proj3}]
-Let $g=2\beta\epsilon c f$ on $(0,1)$, and write $g=g^+-g^-$. For $x\in(0,1)$ and $U$ uniform on $[0,1]$, the
+Let $g=2\beta\epsilon_3 c_3 f$ on $(0,1)$, and write $g=g^+-g^-$. For $x\in(0,1)$ and $U$ uniform on $[0,1]$, the
 triple $\tau_x=(x,-Ux,-(1-U)x)$ has sum $0$; its reflection $-\tau_x$ also has sum $0$. The expected counting
 measure of the three entries of $\tau_x$ is $\delta_x$ plus the measure with density $2/x$ on $(-x,0)$.
 
@@ -307,47 +329,47 @@ paragraph, the measure $\nu$ with density
 \[
 \nu(y)=g^+(y)+2\int_y^1\frac{g^-(x)}{x}\,dx,\qquad \nu(-y)=g^-(y)+2\int_y^1\frac{g^+(x)}{x}\,dx\qquad(0<y<1).
 \]
-By \cref{lem:ode}, $\nu(y)-\nu(-y)=g(y)-2\int_y^1g(x)\,dx/x=2\beta\epsilon c\,h(y)=p(y)-p(-y)$. Moreover, using
+By \cref{lem:ode}, $\nu(y)-\nu(-y)=g(y)-2\int_y^1g(x)\,dx/x=2\beta\epsilon_3 c_3\,h(y)=p(y)-p(-y)$. Moreover, using
 $|f(x)|/x\le(25/3)a(x)$, $\int_0^1a=1/2$ and $a\ge1/\pi$,
 \[
-\nu(\pm y)\le|g(y)|+2\int_0^1\frac{|g(x)|}{x}\,dx\le2\beta\epsilon\cdot\frac{25}{3}\,(a(y)+1)
-\le\frac{50(1+\pi)}{3}\,\beta\epsilon\,a(y)<70\beta\epsilon\,a(y).
+\nu(\pm y)\le|g(y)|+2\int_0^1\frac{|g(x)|}{x}\,dx\le2\beta\epsilon_3\cdot\frac{25}{3}\,(a(y)+1)
+\le\frac{50(1+\pi)}{3}\,\beta\epsilon_3\,a(y)<70\beta\epsilon_3\,a(y).
 \]
-Since $p\ge\beta(1-\epsilon)a$ and $70\epsilon<1-\epsilon$, we have $\nu\le p$ on $(-1,1)$. The residual $p-\nu$ is
-therefore a nonnegative even density; let $r$ be its mass. Then $r=\beta-3\int_0^1|g|$, because $M$ and its coordinate $\nu$ both have mass $3\int_0^1|g|$.
+Since $p\ge\beta(1-\epsilon_3)a$ and $70\epsilon_3<1-\epsilon_3$, we have $\nu\le p$ on $(-1,1)$. The residual $p-\nu$ is
+therefore a nonnegative even density; let $\varrho$ be its mass. Then $\varrho=\beta-3\int_0^1|g|$, because $M$ and its coordinate $\nu$ both have mass $3\int_0^1|g|$.
 
-If $r>0$ let $Y$ have density $(p-\nu)/r$, and let $M'$ be the law of the triple $(Y,-Y,0)$ with its entries
-permuted uniformly, multiplied by $3r/2$. Each coordinate of $M'$ is $(r/2)\bigl(\mathcal L(Y)+\mathcal L(-Y)+\delta_0\bigr)$, which is $r$ times the law
-of $Y$ plus $(r/2)\delta_0$, since $Y$ and $-Y$ have the same law. Finally let $M''$ be the point mass at $(0,0,0)$ with weight $1-\beta-r/2$, which is
-nonnegative because $r\le\beta\le 2(1-\beta)$. The measure $M+M'+M''$ has total mass
-$3\int|g|+3r/2+1-\beta-r/2=1$, is carried by triples with sum $0$, and each coordinate has law
-$\nu+(p-\nu)+(r/2+1-\beta-r/2)\delta_0=\mu$. So $\mu$ is $3$-CM.
+If $\varrho>0$ let $Y$ have density $(p-\nu)/\varrho$, and let $M'$ be the law of the triple $(Y,-Y,0)$ with its entries
+permuted uniformly, multiplied by $3\varrho/2$. Each coordinate of $M'$ is $(\varrho/2)\bigl(\mathcal L(Y)+\mathcal L(-Y)+\delta_0\bigr)$, where $\mathcal L$ denotes the law, which is $\varrho$ times the law
+of $Y$ plus $(\varrho/2)\delta_0$, since $Y$ and $-Y$ have the same law. Finally let $M''$ be the point mass at $(0,0,0)$ with weight $1-\beta-\varrho/2$, which is
+nonnegative because $\varrho\le\beta\le 2(1-\beta)$. The measure $M+M'+M''$ has total mass
+$3\int|g|+3\varrho/2+1-\beta-\varrho/2=1$, is carried by triples with sum $0$, and each coordinate has law
+$\nu+(p-\nu)+(\varrho/2+1-\beta-\varrho/2)\delta_0=\mu$. So $\mu$ is $3$-CM.
 \end{proof}
 
-\section{All indices from three on, and smooth densities}\label{sec:all}
+\section{All \texorpdfstring{$n\ge3$}{n >= 3}, and smooth densities}\label{sec:all}
 
 \begin{proof}[Proof of \cref{thm:main}]
 For $n=3$ and $n=4$ take $P_3$ and $P_4$. Let $n>3$, let $A\in\C$ with $|A|>n$, and let
 $Q=(3/n)P_3+(1-3/n)\delta_A$. Every image $\pi_\phi(Q)$ is $(3/n)\pi_\phi(P_3)+(1-3/n)\delta_{\pi_\phi(A)}$; taking
-a $3$-mix of $\pi_\phi(P_3)$ (with sum $0$) together with $n-3$ copies of $\pi_\phi(A)$, and permuting the $n$
+a $3$-mix of $\pi_\phi(P_3)$ (with sum $0$) together with $n-3$ entries equal to $\pi_\phi(A)$, and permuting the $n$
 entries uniformly at random, gives an $n$-mix of it.
 
-Suppose $(V_1,\dots,V_n)$ is an $n$-mix of $Q$. Its sum is $n\E V_1=(n-3)A$. On the event that exactly $j$ entries
+Suppose $(X_1,\dots,X_n)$ is an $n$-mix of $Q$. Its sum is $n\E X_1=(n-3)A$. On the event that exactly $j$ entries
 equal $A$, the remaining $n-j$ entries lie in the closed unit disk, so $|(n-3-j)A|\le n-j\le n$; as $|A|>n$ this
-forces $j=n-3$. Hence almost surely exactly three entries differ from $A$, and they sum to $0$. Let $(U_1,U_2,U_3)$
-be these three entries in uniformly random order, chosen independently of everything else. For a Borel set $G$ not
-containing $A$, the expected number of entries of $(V_1,\dots,V_n)$ in $G$ is $n\,Q(G)=3P_3(G)$, so each $U_k$ has
-law $P_3$, and $(U_1,U_2,U_3)$ is a $3$-mix of $P_3$, which was shown impossible. Translating $Q$ by $-(1-3/n)A$
+forces $j=n-3$. Hence almost surely exactly three entries differ from $A$, and they sum to $0$. Let $(Y_1,Y_2,Y_3)$
+be these three entries in uniformly random order, chosen independently of everything else. For a Borel set $\Gamma$ not
+containing $A$, the expected number of entries of $(X_1,\dots,X_n)$ in $\Gamma$ is $n\,Q(\Gamma)=3P_3(\Gamma)$, so each $Y_k$ has
+law $P_3$, and $(Y_1,Y_2,Y_3)$ is a $3$-mix of $P_3$, which was shown impossible. Translating $Q$ by $-(1-3/n)A$
 gives a distribution with mean zero.
 \end{proof}
 
 \begin{lemma}\label{lem:limit}
-Let $P$ be a distribution on $\R^2$ with mean zero which is not $n$-CM, and let $P_k\to P$ weakly, each $P_k$ with
-mean zero. Then $P_k$ is not $n$-CM for all large $k$.
+Let $P$ be a distribution on $\R^2$ which is not $n$-CM, and let $G_k\to P$ weakly, each $G_k$ with
+mean zero. Then $G_k$ is not $n$-CM for all large $k$.
 \end{lemma}
 
 \begin{proof}
-Otherwise, passing to a subsequence, let $\lambda_k$ be the law of an $n$-mix of $P_k$, a probability measure on
+Otherwise, passing to a subsequence, let $\lambda_k$ be the law of an $n$-mix of $G_k$, a probability measure on
 $(\R^2)^n$ carried by the closed set $H=\{(w_1,\dots,w_n):\sum_iw_i=0\}$. The marginals of $\lambda_k$ form a tight
 family, so $\{\lambda_k\}$ is tight and has a weakly convergent subsequence. Its limit $\lambda$ is carried by $H$
 and has all marginals equal to $P$, so it is the law of an $n$-mix of $P$.
@@ -357,19 +379,22 @@ and has all marginals equal to $P$, so it is the law of an $n$-mix of $P$.
 Let $n\ge 3$ and let $P$ be the distribution constructed for \cref{thm:main}, translated to mean zero; it is
 supported in a disk $\{|x|\le\rho\}$. Let $R>\rho+1$.
 
-(a) For $0<t<1$ let $P^{(t)}=(1-t)\,(P*D_t)+t\,D_R$. Its density is $C^\infty$, positive on $\{|x|<R\}$ and zero
-outside. By \cref{lem:basic} its images under linear maps to $\R$ are $n$-CM: the image of the first branch is an
+(a) For $0<\eta<1$ let $P^{(\eta)}=(1-\eta)\,(P*D_\eta)+\eta\,D_R$. It has mean zero, and its density is $C^\infty$,
+positive on $\{|x|<R\}$ and zero
+outside. By \cref{lem:basic} its images under linear maps to $\R$ are $n$-CM: the image of the first component is an
 independent sum of an image of $P$ and an image of a rotation-invariant law, both $n$-CM with sum $0$, and the image
-of the second branch is $n$-CM with sum $0$. As $t\to0$, $P^{(t)}\to P$ weakly, so by \cref{lem:limit} $P^{(t)}$ is
-not $n$-CM for small $t$.
+of the second component is $n$-CM with sum $0$. As $\eta\to0$, $P^{(\eta)}\to P$ weakly, so by \cref{lem:limit} $P^{(\eta)}$ is
+not $n$-CM for small $\eta$.
 
-(b) For $\sigma>0$ let $P_\sigma=P*N(0,\sigma^2I)$. Its density
-$x\mapsto(2\pi\sigma^2)^{-1}\int e^{-|x-z|^2/2\sigma^2}\,P(dz)$ is everywhere positive and, since $P$ has compact
+(b) For $\sigma>0$ let $P_\sigma=P*N(0,\sigma^2I)$, which has mean zero. Its density
+\[
+x\mapsto(2\pi\sigma^2)^{-1}\int e^{-|x-z|^2/2\sigma^2}\,P(dz)
+\]
+is everywhere positive and, since $P$ has compact
 support, extends to an entire function of the two coordinates; in particular it is real analytic. Its linear images
 are $n$-CM by \cref{lem:basic}, and $P_\sigma\to P$ as $\sigma\to0$, so \cref{lem:limit} applies again.
 \end{proof}
 
-For $n=4$, \cref{prop:disk4} gives a choice of the parameters for which the conclusion of (a) is verified directly.
 
 \begin{remark}
 Embedding the plane in $\R^d$ gives, for every $d\ge2$ and $n\ge3$, a distribution on $\R^d$ whose images under all
@@ -377,31 +402,32 @@ linear maps $\R^d\to\R$ are $n$-CM while the distribution is not. We do not know
 a distribution all of whose projections onto hyperplanes are $n$-CM.
 \end{remark}
 
-\section{Two copies}\label{sec:two}
+\section{The case \texorpdfstring{$n=2$}{n=2}}\label{sec:two}
 
 \begin{proof}[Proof of \cref{prop:two}]
-If a distribution $G$ on $\R^k$ with mean $m$ is $2$-CM, a $2$-mix $(X_1,X_2)$ has $X_2=2m-X_1$, so $G$ is
-symmetric about $m$; conversely, if $X$ has law $G$ and $2m-X$ has law $G$, then $(X,2m-X)$ is a $2$-mix. Let $b$
+If a distribution on $\R^k$ with mean $m$ is $2$-CM, a $2$-mix $(X_1,X_2)$ of it has $X_2=2m-X_1$, so the
+distribution is symmetric about $m$; conversely, if $X$ and $2m-X$ have the same law, then $(X,2m-X)$ is a $2$-mix
+of that law. Let $b$
 be the mean of $X$. If every $\langle u,X\rangle$ is $2$-CM, it is symmetric about $\langle u,b\rangle$, so
 $\langle u,X-b\rangle$ and $\langle u,b-X\rangle$ have the same law for all $u$. By the Cram\'er--Wold theorem,
 $X-b$ and $b-X$ have the same law, and the law of $X$ is $2$-CM. The other direction is \cite[Proposition~6]{Wang}.
 \end{proof}
 
 \begin{proof}[Construction for \cref{ex:stable}]
-Let $S_1,S_2,S_3$ be independent with characteristic function
+Let $\zeta_1,\zeta_2,\zeta_3$ be independent with characteristic function
 \[
-\E e^{itS_j}=\exp\Bigl(-|t|-\frac{2i}{\pi}\,t\log|t|\Bigr),
+\E e^{it\zeta_j}=\exp\Bigl(-|t|-\frac{2i}{\pi}\,t\log|t|\Bigr),
 \]
-the totally skewed $1$-stable law \cite[Section~1.1]{ST}, and let $X=(S_1-S_3,\,S_2-S_3)$. For $(u,v)\ne0$ put
-$\alpha=(u,v,-u-v)$, so that $uX_1+vX_2=\sum_j\alpha_jS_j$ and $\sum_j\alpha_j=0$. Using
+the totally skewed $1$-stable law \cite[Section~1.1]{ST}, and let $X=(\zeta_1-\zeta_3,\,\zeta_2-\zeta_3)$. For $(u,v)\ne0$ put
+$\alpha=(u,v,-u-v)$, so that $uX_1+vX_2=\sum_j\alpha_j\zeta_j$ and $\sum_j\alpha_j=0$. Using
 $\alpha_jt\log|\alpha_jt|=\alpha_jt\log|t|+\alpha_jt\log|\alpha_j|$ (with $0\log0=0$), the terms in $t\log|t|$
 cancel and
 \[
 \E e^{it(uX_1+vX_2)}=\exp\bigl(-\gamma|t|+i\kappa t\bigr),\qquad
 \gamma=\sum_j|\alpha_j|>0,\quad \kappa(u,v)=-\frac2\pi\sum_j\alpha_j\log|\alpha_j| .
 \]
-So $uX_1+vX_2$ is a Cauchy variable with scale $\gamma$ and center $\kappa(u,v)$, and is $2$-CM through the pair
-$(Y,2\kappa-Y)$. A Cauchy distribution is symmetric about exactly one point, its center, since the law of $2s-Y$
+So $uX_1+vX_2$ is a Cauchy variable with scale $\gamma$ and location $\kappa(u,v)$, and is $2$-CM through the pair
+$(Y,2\kappa-Y)$. A Cauchy distribution is symmetric about exactly one point, its location, since the law of $2s-Y$
 has characteristic function $\exp(-\gamma|t|+i(2s-\kappa)t)$.
 
 If $(X^{(1)},X^{(2)})$ were a $2$-mix of $X$ with sum $C\in\R^2$, then $X$ and $C-X$ would have the same law, and so
@@ -409,30 +435,30 @@ each $uX_1+vX_2$ would be symmetric about $(uC_1+vC_2)/2$. This would make $\kap
 \kappa(0,1)=0$ and $\kappa(1,1)=(4/\pi)\log2$.
 \end{proof}
 
-\section{Thin supports}\label{sec:thin}
+\section{Supports of small dimension}\label{sec:thin}
 
 \begin{proof}[Proof of \cref{prop:thin}]
 One direction is \cite[Proposition~6]{Wang}. Conversely let $(Y_1,\dots,Y_n)$ be an $n$-mix of the law of $LX$; its
-sum is $nLb$. Let $\kappa(y,\cdot)$ be a regular conditional distribution of $X$ given $LX=y$, and, given
-$(Y_1,\dots,Y_n)$, draw $X_1,\dots,X_n$ conditionally independently with $X_i\sim\kappa(Y_i,\cdot)$. Then each
+sum is $nLb$. Let $\Lambda(y,\cdot)$ be a regular conditional distribution of $X$ given $LX=y$, and, given
+$(Y_1,\dots,Y_n)$, draw $X_1,\dots,X_n$ conditionally independently with $X_i\sim\Lambda(Y_i,\cdot)$. Then each
 $X_i$ has the law of $X$, and almost surely $X_i\in S$ and $LX_i=Y_i$ for all $i$. Hence $t=\sum_iX_i-nb$ lies in
-$T$ and $Lt=\sum_iY_i-nLb=0$, so $t=0$ almost surely.
+$\Delta$ and $Lt=\sum_iY_i-nLb=0$, so $t=0$ almost surely.
 \end{proof}
 
 \begin{proof}[Proof of \cref{cor:dim}]
 For a $k$-dimensional subspace $V$ the orthogonal projection onto $V$ has kernel $V^\perp$, and
-$V^\perp\cap T\not\subseteq\{0\}$ exactly when $V^\perp$ contains a point of $E$. Let $V$ be random with the
-invariant distribution. For a fixed unit vector $e$, $|P_Ve|^2$ has the beta distribution with parameters
-$k/2$ and $(d-k)/2$ (by rotation invariance, $|P_Ve|^2$ has the law of $|P_Ge|^2$ for a fixed $k$-plane $G$ and a uniform unit vector $e$, that is, of $(N_1^2+\dots+N_k^2)/(N_1^2+\dots+N_d^2)$ with $N_i$ independent standard normal), so there is $C=C_{d,k}$ with
-$\Prob(|P_Ve|\le r)\le Cr^k$ for $0<r<1/2$. If some unit vector $v\in V^\perp$ satisfies $|v-e|\le r$, then
+$V^\perp\cap \Delta\not\subseteq\{0\}$ exactly when $V^\perp$ contains a point of $E$. Let $V$ be random with the
+invariant distribution. Write $P_V$ for the orthogonal projection onto $V$. For a fixed unit vector $e$, $|P_Ve|^2$ has the beta distribution with parameters
+$k/2$ and $(d-k)/2$ (by rotation invariance, $|P_Ve|^2$ has the law of $|P_{V_0}e|^2$ for a fixed $k$-plane $V_0$ and a uniform unit vector $e$, that is, of $(N_1^2+\dots+N_k^2)/(N_1^2+\dots+N_d^2)$ with $N_i$ independent standard normal), so there is a constant $c_{d,k}$ with
+$\Prob(|P_Ve|\le r)\le c_{d,k}r^k$ for $0<r<1/2$. If some unit vector $v\in V^\perp$ satisfies $|v-e|\le r$, then
 $|P_Ve|=|P_V(e-v)|\le r$. Since $\dim_HE<k$, we can cover $E$ by balls with centers
 $e_i\in E$ and radii $r_i<1/2$ with $\sum_ir_i^k$ as small as we like, and
-$\Prob(V^\perp\cap E\ne\emptyset)\le C\sum_ir_i^k$. Hence $\Prob(V^\perp\cap E\ne\emptyset)=0$, so for almost every $V$ the hypothesis of
+$\Prob(V^\perp\cap E\ne\emptyset)\le c_{d,k}\sum_ir_i^k$. Hence $\Prob(V^\perp\cap E\ne\emptyset)=0$, so for almost every $V$ the hypothesis of
 \cref{prop:thin} holds for the projection onto $V$.
 
 If $S$ is compact with upper box dimension $s<k/n$, a cover of $S$ by $N$ balls of radius $\rho$ gives a cover of
-$S+\dots+S$ by $N^n$ balls of radius $n\rho$, so $T$ has upper box dimension at most $ns$ and hence
-$\dim_HT\le ns$. The map $t\mapsto t/|t|$ is Lipschitz on each annulus $\{2^{-m}\le|t|\le2^m\}$, so by countable
+$S+\dots+S$ by $N^n$ balls of radius $n\rho$, so $\Delta$ has upper box dimension at most $ns$ and hence
+$\dim_H\Delta\le ns$. The map $t\mapsto t/|t|$ is Lipschitz on each annulus $\{2^{-m}\le|t|\le2^m\}$, so by countable
 stability $\dim_HE\le ns<k$.
 \end{proof}
 
@@ -464,18 +490,24 @@ The author holds equity in Heights Labs and Convex Nexus Capital and has a manag
 
 The arguments and programs were developed by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain
 and working under the author's direction; the agents also drafted the text. The question is Open Problem~6 of Wang
-\cite{Wang}. The lower-density criterion used in \cref{sec:four} is due to Puccetti, Wang and Wang \cite{PWW13}, and
+\cite{Wang}. The concave-density criterion quoted in the introduction and the lower-density criterion used in
+\cref{sec:four} are due to Puccetti, Wang and Wang \cite{PWW12,PWW13}, the behavior of the constant sum without a
+mean was studied by Puccetti, Rigo, Wang and Wang \cite{PRWW}, and
 the characteristic function of the $1$-stable law is standard \cite{ST}. The author directed the work and is
 responsible for the content of the paper and for decisions concerning its dissemination.
 
 \section*{Data and code availability}
 
-The program \texttt{check\_constants.py} in the repository
-\begin{center}\url{https://github.com/yspennstate/projection-complete-mixability/tree/v1.0}\end{center}
+The program \texttt{code/check\_constants.py} in the repository
+\begin{center}\url{https://github.com/yspennstate/projection-complete-mixability/tree/v1.1}\end{center}
 recomputes the constants of \cref{prop:proj4,prop:disk4} in exact rational arithmetic and checks
 \cref{lem:ode} and the inequality $\nu\le p$ of \cref{sec:three} numerically on a grid.
 
 \begin{thebibliography}{99}
+
+\bibitem{KL}
+A.~Komisarski and J.~Labuschagne, The distributions of the mean of random vectors with fixed marginal
+distribution, \emph{J. Theoret. Probab.} 37 (2024), 2121--2129. \doi{10.1007/s10959-023-01277-2}
 
 \bibitem{PRWW}
 G.~Puccetti, P.~Rigo, B.~Wang and R.~Wang, Centers of probability measures without the mean, \emph{J. Theoret.
