@@ -109,8 +109,8 @@ For $n=4$, a distribution as in (a) is given explicitly in \cref{prop:disk4}.
 
 The examples are not uniform distributions on convex sets, so they say nothing about Wang's Open Problem~5, which
 asks whether such uniform distributions on $\R^d$ are $(d+1)$-CM. The examples constructed below for $n=3$ and
-$n=4$ are not centrally symmetric (their fifth and third complex moments do not vanish), so they are not of the elliptically
-contoured or $\alpha$-symmetric kind treated in \cite{RU}.
+$n=4$ are not centrally symmetric (their fifth and third complex moments do not vanish), so they are not elliptical
+distributions such as those of Yin and Zhu \cite{YZ}.
 
 For $n=2$ the answer depends on whether the mean is finite.
 
@@ -164,8 +164,7 @@ preserved by scaling, it suffices to consider the maps $\pi_\phi$. We write $a(x
 arcsine density on $(-1,1)$ and $T_m$ for the Chebyshev polynomial with $T_m(\cos v)=\cos(mv)$.
 
 We use the following two standard facts. The mixture argument in (i) is the one in the proof of
-\cite[Theorem~2]{Wang}, and (ii) is a special case of the complete mixability of radially symmetric distributions
-\cite{PWW12}.
+\cite[Theorem~2]{Wang}.
 
 \begin{lemma}\label{lem:basic}
 \begin{enumerate}[label=(\roman*)]
@@ -234,7 +233,7 @@ $\chi$ both have mean zero, and
 \]
 By the theorem of Puccetti, Wang and Wang \cite[Theorem~3.4]{PWW13}, a distribution on an interval $[x_0,x_1]$
 with a density bounded below by $3/(n(x_1-x_0))$ is $n$-CM for $n\ge3$. Applied with $n=4$ on $[-1,1]$, the
-normalized remainder is $4$-CM with sum $0$ (the values of a density at the two endpoints can be chosen freely). Writing $\psi=\chi+(\psi-\chi)$ and using \cref{lem:basic}(i) shows that the law
+normalized remainder is $4$-CM with sum $0$ (a density is determined only up to a null set, so its values at $\pm1$ may be taken to be $9/22$). Writing $\psi=\chi+(\psi-\chi)$ and using \cref{lem:basic}(i) shows that the law
 of $Y$ is $4$-CM.
 \end{proof}
 
@@ -488,7 +487,7 @@ The author holds equity in Heights Labs and Convex Nexus Capital and has a manag
 
 \section*{Declaration of generative AI and AI-assisted technologies}
 
-The arguments and programs were developed by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain
+This paper is part of a broader research project on proving open problems with AI systems. The arguments and programs were developed by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain
 and working under the author's direction; the agents also drafted the text. The question is Open Problem~6 of Wang
 \cite{Wang}. The concave-density criterion quoted in the introduction and the lower-density criterion used in
 \cref{sec:four} are due to Puccetti, Wang and Wang \cite{PWW12,PWW13}, the behavior of the constant sum without a
@@ -499,8 +498,8 @@ responsible for the content of the paper and for decisions concerning its dissem
 \section*{Data and code availability}
 
 The program \texttt{code/check\_constants.py} in the repository
-\begin{center}\url{https://github.com/yspennstate/projection-complete-mixability/tree/v1.1}\end{center}
-recomputes the constants of \cref{prop:proj4,prop:disk4} in exact rational arithmetic and checks
+\begin{center}\url{https://github.com/yspennstate/projection-complete-mixability/tree/v1.2}\end{center}
+(Python~3 with NumPy and SciPy) recomputes the constants of \cref{prop:proj4,prop:disk4} in exact rational arithmetic and checks
 \cref{lem:ode} and the inequality $\nu\le p$ of \cref{sec:three} numerically on a grid.
 
 \begin{thebibliography}{99}
@@ -511,14 +510,14 @@ distribution, \emph{J. Theoret. Probab.} 37 (2024), 2121--2129. \doi{10.1007/s10
 
 \bibitem{PRWW}
 G.~Puccetti, P.~Rigo, B.~Wang and R.~Wang, Centers of probability measures without the mean, \emph{J. Theoret.
-Probab.} 32 (2019), 1482--1501.
+Probab.} 32 (2019), 1482--1501. \doi{10.1007/s10959-018-0815-3}
 
 \bibitem{PWW12}
-G.~Puccetti, B.~Wang and R.~Wang, Advances in complete mixability, \emph{J. Appl. Probab.} 49 (2012), 430--440.
+G.~Puccetti, B.~Wang and R.~Wang, Advances in complete mixability, \emph{J. Appl. Probab.} 49 (2012), 430--440. \doi{10.1239/jap/1339878796}
 
 \bibitem{PWW13}
 G.~Puccetti, B.~Wang and R.~Wang, Complete mixability and asymptotic equivalence of worst-possible VaR and ES
-estimates, \emph{Insurance Math. Econom.} 53 (2013), 821--828.
+estimates, \emph{Insurance Math. Econom.} 53 (2013), 821--828. \doi{10.1016/j.insmatheco.2013.09.017}
 
 \bibitem{RU}
 L.~R\"uschendorf and L.~Uckelmann, Variance minimization and random variables with constant sum, in
@@ -533,10 +532,10 @@ R.~Wang, Current open questions in complete mixability, \emph{Probab. Surv.} 12 
 
 \bibitem{WW11}
 B.~Wang and R.~Wang, The complete mixability and convex minimization problems with monotone marginal densities,
-\emph{J. Multivariate Anal.} 102 (2011), 1344--1360.
+\emph{J. Multivariate Anal.} 102 (2011), 1344--1360. \doi{10.1016/j.jmva.2011.05.002}
 
 \bibitem{WW16}
-B.~Wang and R.~Wang, Joint mixability, \emph{Math. Oper. Res.} 41 (2016), 808--826.
+B.~Wang and R.~Wang, Joint mixability, \emph{Math. Oper. Res.} 41 (2016), 808--826. \doi{10.1287/moor.2015.0755}
 
 \bibitem{YZ}
 C.~Yin and D.~Zhu, Joint mixability of elliptical distributions and related families, preprint (2023),
@@ -544,15 +543,15 @@ arXiv:1706.05499v4.
 
 \bibitem{MathBrainRepo}
 Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026.
-\url{https://github.com/yspennstate/math-brain-public}
+\url{https://github.com/yspennstate/math-brain-public/tree/8c9a6bd478c4ec4082347151b7ae16db50c917dd}
 
 \bibitem{MathBrainPaper}
-Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical research}, October 2026.
+Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical research}, October 2026, \doi{10.5281/zenodo.24150837},
 \url{https://github.com/yspennstate/math-brain-public/tree/main/papers/math-brain-2026-10-24}
 
 \bibitem{BrainFramework}
 Y.~Shmalo, \emph{Brain Framework}, public software repository, 2026.
-\url{https://github.com/yspennstate/brain-framework-public}
+\url{https://github.com/yspennstate/brain-framework-public/tree/5629e644cdd510173ae97e9aa92642dabd22dc57}
 
 \end{thebibliography}
 
